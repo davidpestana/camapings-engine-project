@@ -1,0 +1,1 @@
+FROM aws/cli

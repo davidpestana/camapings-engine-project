@@ -1,0 +1,16 @@
+version: '3'
+services:
+  nest-cli: &nest
+    build:
+      context: ../../builds/nest-cli
+      dockerfile: ./Dockerfile
+    command: bash
+    volumes:
+      - ../../src:/app
+  angular-cli: &angular
+    build:
+      context: ../../builds/angular-cli
+      dockerfile: ./Dockerfile
+    command: bash
+    volumes:
+      - ../../src:/app

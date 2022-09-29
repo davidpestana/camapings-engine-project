@@ -1,0 +1,52 @@
+version: '3'
+services:
+  payments-service: &nest
+    build:
+      context: ../../builds/nest-cli
+      dockerfile: ./Dockerfile
+    entrypoint: yarn
+    command: run start:debug
+    ports:
+      - 3000:3000
+    volumes:
+      - ../../src/payments-service:/app
+
+  auth-service: 
+    <<: *nest
+    ports:
+      - 3001:3000
+    volumes:
+      - ../../src/auth-service:/app
+
+  admin-panel: &angular
+    build:
+      context: ../../builds/angular-cli
+      dockerfile: ./Dockerfile
+    command: start 
+    entrypoint: npm
+    ports:
+      - 4200:4200
+    volumes:
+      - ../../src/admin-panel:/app
+
+  payments-service-mongo: 
+    build:
+      context: ../../builds/mongo
+      dockerfile: ./Dockerfile
+    volumes:
+      - ../../data/payments-service-mongo:/data/db
+
+
+  auth-service-mongo: 
+    build:
+      context: ../../builds/mongo
+      dockerfile: ./Dockerfile
+    volumes:
+      - ../../data/auth-service-mongo:/data/db
+
+  redis: 
+    build:
+      context: ../../builds/redis
+      dockerfile: ./Dockerfile
+    # volumes:
+    #   - ../../data/redis:/data/db

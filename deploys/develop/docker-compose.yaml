@@ -51,12 +51,3 @@ services:
     # volumes:
     #   - ../../data/redis:/data/db
     
-  react-cli:
-    user: "1000:1000"
-    build:
-      context: ../../builds/react-cli
-      dockerfile: ./Dockerfile
-    ports:
-      - 3000:3000
-    volumes:
-      - ../../src/react-cli/app:/home/node/app    

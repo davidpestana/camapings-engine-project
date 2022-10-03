@@ -50,3 +50,13 @@ services:
       dockerfile: ./Dockerfile
     # volumes:
     #   - ../../data/redis:/data/db
+    
+  micro1:
+    user: "1000:1000"
+    build:
+      context: ../../builds/micro1
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ../../src/micro1/app:/home/node/app    

@@ -7,6 +7,9 @@ angular-cli:
 start:
 	@read -p "Enter environment to start: " environment; \
 	docker compose -f ./deploys/$$environment/docker-compose.yaml up -d
+	
+micro1:
+	docker-compose -f deploys/develop/docker-compose.yaml run --rm micro1
 logs:
 	docker compose -f ./deploys/develop/docker-compose.yaml logs -f
 

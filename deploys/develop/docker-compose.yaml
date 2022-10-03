@@ -51,12 +51,12 @@ services:
     # volumes:
     #   - ../../data/redis:/data/db
     
-  micro1:
+  react-cli:
     user: "1000:1000"
     build:
-      context: ../../builds/micro1
+      context: ../../builds/react-cli
       dockerfile: ./Dockerfile
     ports:
       - 3000:3000
     volumes:
-      - ../../src/micro1/app:/home/node/app    
+      - ../../src/react-cli/app:/home/node/app    

@@ -50,3 +50,8 @@ services:
       dockerfile: ./Dockerfile
     # volumes:
     #   - ../../data/redis:/data/db
+
+  spring-boot: 
+    build:
+      context: ../../builds/springboot
+      dockerfile: ./Dockerfile

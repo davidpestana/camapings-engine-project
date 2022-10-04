@@ -1,0 +1,13 @@
+version: '3'
+services:
+
+  home-view: &angular
+    build:
+      context: ../../builds/angular-cli
+      dockerfile: ./Dockerfile
+    command: start 
+    entrypoint: npm
+    ports:
+      - 4201:4200
+    volumes:
+      - ../../src/home-view:/app

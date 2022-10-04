@@ -1,0 +1,8 @@
+version: '3'
+services:
+  spring-boot:
+    build:
+      context: ../../builds/springboot
+      dockerfile: ./Dockerfile
+    volumes:
+      - ../../src/greeting-service:/app

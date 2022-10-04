@@ -1,5 +1,17 @@
 version: '3'
 services:
+
+  # traefik:
+  #   build:
+  #     context: ../../builds/traefik
+  #     dockerfile: ./Dockerfile
+  #   depends_on:
+  #     - admin-panel
+  #   # volumes:
+  #   #   - traefik:/etc/traefik/acme:z
+  #   ports:
+  #     - "0.0.0.0:80:80"
+
   payments-service: &nest
     build:
       context: ../../builds/nest-cli
@@ -23,6 +35,7 @@ services:
       context: ../../builds/angular-cli
       dockerfile: ./Dockerfile
     command: start 
+    scale: 1
     entrypoint: npm
     ports:
       - 4200:4200
